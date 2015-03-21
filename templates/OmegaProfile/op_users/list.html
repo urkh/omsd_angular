@@ -1,0 +1,71 @@
+
+<div ng-controller="OPUsers" class="row">
+    <div class="col-md-12">
+        <div class="widget box">
+            <div class="widget-header omega">
+                <h4><i class="fa fa-group"></i> Usuarios </h4>
+                <div class="toolbar no-padding">
+                    <div class="btn-group">
+                        <div class="btn-group omega" data-toggle="tooltip" data-placement="left" title="Buscar">
+                            <a  id="buttonClass2" class="btn btn-xs omega2">
+                                <i class="fa fa-search"></i>
+                            </a>
+                            <div id="dropsearch2" class="inputDrop none">
+                                <input type="text" id="ocmdb_filter_providers" placeholder="Buscar">
+                            </div>
+                        </div>
+                        <div class="btn-group omega" data-toggle="tooltip" data-placement="left" title="Exportar">
+                            <a class="btn btn-xs omega2 dropdown-toggle" data-toggle="dropdown" >
+                                <i class="fa fa-share link"></i>
+                            </a>
+                            <ul class="dropdown-menu" role="menu" style="right: 0; left: auto;">
+                                <li><a href="#">CSV</a></li>
+                                <li><a href="/OmegaProfile/usersviews_export_excel">Excel</a></li>
+                                <li><a href="/OmegaProfile/usersviews_export_pdf">PDF</a></li>
+                            </ul>
+                        </div>
+                        <div class="btn-group omega" data-toggle="tooltip" data-placement="left" title="Agregar">
+                            <a ng-click="open()" class="btn btn-xs omega2">
+                                <i class="fa fa-plus add"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="widget-content ">                               
+                <table ng-table show-filter="true" >
+                    
+                    <thead>
+                        <tr>
+
+                            <th class="pequena"></th>
+                            <th>Perfil</th>
+                            <th>Nombre</th>
+                            <th>Alias</th>
+                            <th>Correo</th>
+                            <th>Cargo</th>
+                            <th>Teléfono</th>
+                            <th>Activo</th>
+                        </tr>
+                    </thead>
+                        
+                    <tbody>
+                        <tr ng-repeat="user in users">
+                            <td class="pequena"></td>
+                            <td data-title="Perfil">{{user.profile}}</td>
+                            <td data-title="Nombre">{{user.name}}</td>
+                            <td data-title="Alias">{{user.alias}}</td>
+                            <td data-title="Correo">{{user.email}}</td>
+                            <td data-title="Cargo">{{user.level}}</td>
+                            <td data-title="Telefono">{{user.phone}}</td>
+                            <td data-title="Status">{{user.status}}</td>
+                        </tr>
+                    </tbody>                                
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

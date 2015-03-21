@@ -1,0 +1,87 @@
+							<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+				              <li class="effect-circle">
+				              	<a href="{% url "index_view" %}">
+					              	<span class="fa-stack fa-lg">
+									  <i <i class="fa fa-home fa-stack-1x fa-inverse"></i>
+									</span>
+					              	<span>Inicio</span>
+				              	</a>
+				              </li>
+				              <li class="dropdown-submenu effect-circle">
+				                <a href="{% url 'users_view' %}">
+					              	<span class="fa-stack fa-lg">
+									  <i class="fa fa-users fa-stack-1x fa-inverse"></i>
+									</span>
+					              	<span>Usuarios</span>
+				              	</a>
+				              </li>
+				              <li class="effect-circle">
+				              	<a href="{% url 'profile_view' %}">
+					              	<span class="fa-stack fa-lg">
+									  <i class="fa fa-user fa-stack-1x fa-inverse"></i>
+									</span>
+					              	<span>Perfiles</span>
+				              	</a>
+				              </li>
+				              <li class="effect-circle">
+				                <a href="{% url 'permission_view' %}">
+					              	<span class="fa-stack fa-lg">
+									  <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+									</span>
+					              	<span>Permisos</span>
+				              	</a>
+				              </li>
+				              <li class="dropdown-submenu effect-circle">
+				                <a href="#">
+					              	<span class="fa-stack fa-lg">
+									  <i class="fa  fa-cogs fa-stack-1x fa-inverse"></i>
+									</span>
+					              	<span>Configuraciones Generales</span>
+					              	<span class="caret-right"></span>
+				              	</a>
+				                <ul class="dropdown-menu">
+				                  <li>
+				                  	<a tabindex="-1" href="{% url 'ldap_servers_view' %}">
+				                  		<i class="fa fa-database"></i>
+				                  		<span>Servidores LDAP</span>
+				                  	</a>
+				                  </li>
+				                  <li>
+				                  	<a href="{% url 'additionalop_fields_view' %}">
+				                  		<i class="fa fa-plus-square"></i>
+				                  		<span>Campos Adicionales</span>
+				                  	</a>
+				                  </li>
+				                  <li>
+				                  	<a href="{% url 'required_fields_view' %}">
+				                  		<i class="fa fa-asterisk"></i>
+				                  		<span>Campos Obligatorios</span>
+				                  	</a>
+				                  </li>
+				                  <li>
+				                  	<a data-toggle="modal" href="#op_MAuthType">
+				                  		<i class="fa fa-sign-in"></i>
+				                  		<span>Tipo de Autenticacion</span>
+				                  	</a>
+				                  </li>
+				                  <li>
+				                  	<a href="{% url 'import_users_view' %}">
+				                  		<i class="fa fa-arrow-circle-down"></i>
+				                  		<span>Importar Usuarios</span>
+				                  	</a>
+				                  </li>
+				                  <li>
+				                  	<a href="{% url 'update_users_view' %}">
+				                  		<i class="fa fa-repeat"></i>
+				                  		<span>Actualizar Info.</span>
+				                  	</a>
+				                  </li>
+				                  <li>
+				                  	<a href="{% url 'sync_ldap' %}">
+				                  		<i class="fa fa-refresh"></i>
+				                  		<span>Sincronizador</span>
+				                  	</a>
+				                  </li>
+				                </ul>
+				              </li>
+				            </ul>

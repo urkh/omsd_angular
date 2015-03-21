@@ -1,0 +1,295 @@
+  <!-- Header -->
+  <header>
+    <nav class="navbar navbar-fixed-top" role="banner">
+      <!-- Top Navigation Bar -->
+      <div class="container-fluid" role="navegation">
+
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav menu-items">
+            <!-- main-menu -->
+            <li>
+              <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">
+                <i class="fa fa-bars fa-lg toggle"></i>
+              </a>
+              <!-- Selector de proyectos 
+              {% if "Omega" in request.path %}
+                {% if "OmegaConfiguration" in request.path %}
+                  {% include "menu-configutaciones.html" %}
+                {% endif %}
+                {% if "OmegaProfile" in request.path %}
+                  {% include "menu.html" %}
+                {% endif %}
+                {% if "OmegaAnalyst" in request.path %}
+                  {% include "menu-analistas.html" %}
+                {% endif %}
+                {% if "OmegaBDC" in request.path %}
+                  {% include "menu-bdc.html" %}
+                {% endif %}
+                {% if "OmegaCMDB" in request.path %}
+                  {% include "menu-cmdb.html" %}
+                {% endif %}
+
+                {% if "OmegaUsers" in request.path %}
+                  {% include "ou_menu.html" %}
+                {% endif %}
+              {% endif %}
+            -->
+
+
+            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+              
+              <li class="effect-circle">
+                <a href="">
+                  <span class="fa-stack fa-lg">
+                    <i <i class="fa fa-home fa-stack-1x fa-inverse"></i>
+                  </span>
+                  <span>Inicio</span>
+                </a>
+              </li>
+
+              <li class="dropdown-submenu effect-circle">
+                <a ui-sref="omsd.op_user_list">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-users fa-stack-1x fa-inverse"></i>
+                  </span>
+                  <span>Usuarios</span>
+                </a>
+              </li>
+
+              <li class="effect-circle">
+                <a href="">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-user fa-stack-1x fa-inverse"></i>
+                  </span>
+                  <span>Perfiles</span>
+                </a>
+              </li>
+
+              <li class="effect-circle">
+                <a href="">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+                  </span>
+                  <span>Permisos</span>
+                </a>
+              </li>
+
+              <li class="dropdown-submenu effect-circle">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa  fa-cogs fa-stack-1x fa-inverse"></i>
+                  </span>
+                  <span>Configuraciones Generales</span>
+                  <span class="caret-right"></span>
+                </a>
+
+                <ul class="dropdown-menu">
+                  <li>
+                    <a tabindex="-1" href="">
+                      <i class="fa fa-database"></i>
+                      <span>Servidores LDAP</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <i class="fa fa-plus-square"></i>
+                      <span>Campos Adicionales</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <i class="fa fa-asterisk"></i>
+                      <span>Campos Obligatorios</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a data-toggle="modal" href="#op_MAuthType">
+                      <i class="fa fa-sign-in"></i>
+                      <span>Tipo de Autenticacion</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <i class="fa fa-arrow-circle-down"></i>
+                      <span>Importar Usuarios</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <i class="fa fa-repeat"></i>
+                      <span>Actualizar Info.</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <i class="fa fa-refresh"></i>
+                      <span>Sincronizador</span>
+                    </a>
+                  </li>
+                </ul>
+
+              </li>
+            </ul>
+
+
+
+          </li><!-- ./main-menu -->
+          <!-- logo -->
+          <li>
+            <a style="padding-bottom: 0;padding-top: 4px;padding-left: 0;" href="#">
+              <img alt="logo" src="/static/img/logo_Confi_moduloOS.png">
+                <!--  LOGO
+                {% if "Omega" in request.path %}
+                  {% if "OmegaConfiguration" in request.path %}
+                    <img alt="logo" src="/static/img/logo_Confi_moduloOS.png">    
+                  {% endif %}
+                  {% if "OmegaProfile" in request.path %}
+                    <img alt="logo" src="/static/img/logo_perfili_moduloOS.png">
+                  {% endif %}
+                  {% if "OmegaAnalyst" in request.path %}
+                    <img alt="logo" src="/static/img/logo_analista_moduloOS.png">
+                  {% endif %}
+                  {% if "OmegaBDC" in request.path %}
+                    <img alt="logo" src="/static/img/logo_bdC_moduloOS.png">
+                  {% endif %}
+                  {% if "OmegaCMDB" in request.path %}
+                    <img alt="logo" src="/static/img/logo_cmdB_moduloOS.png">
+                  {% endif %}
+
+                  {% if "OmegaUsers" in request.path %}
+                    <img alt="logo" src="/static/img/logo_usuario_moduloOS.png">
+                  {% endif %}
+                {% endif %}
+              -->
+
+            </a>
+          </li><!-- ./logo -->
+        </ul>
+        <!-- user login dropdown -->
+        <ul class="nav navbar-nav navbar-right">
+          <div class="separador_header"></div>
+          <li>
+
+            <img class="round-image " aria-expanded="true" src="" alt="">  
+
+          </li>
+          <li class="inactive">
+            <div class="dropdown">
+              <p class="padding-top-12px padding-right-10px dropdown-toggle" data-toggle="dropdown">
+                <span class="username"> Nombre Usuario</span>
+                <span class="triangulo_user_header"></span>
+              </p>                    
+              <ul class="dropdown-menu dropdown-menu-user" role="menu" aria-labelledby="dropdownMenu1">
+                <li role="presentation"><a role="menuitem" href="#">Perfil</a></li>
+                <li role="presentation"><a role="menuitem" href="#">Calendario</a></li>
+                <li role="presentation"><a role="menuitem" href="#">Tareas</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a role="menu item" href="">Cerrar sesión</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul><!-- ./user login dropdown -->
+
+
+        <!-- select-project -->
+        <div class="navbar-form navbar-right">
+          <select id="oc_project" class="selectpicker select-project container_header_select" data-live-search="true" data-style="btn-select-project">
+                <!--
+                {% load select_project %}
+                {% proyectos %}
+              -->
+            </select>
+          </div>
+          <!-- select-project -->
+
+
+          <!-- notification -->
+          
+          <ul class="nav navbar-nav navbar-right btn-nav btn-menu">
+            <li>
+              <a href="#" data-toggle="dropdown" aria-expanded="true" ><i class="fa fa-bell fa-lg"></i>
+                <span class="badge badge-notification">1</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-notification panel-notification" role="menu" aria-labelledby="dropdownMenu1">
+                <li>
+                  <a href="#">
+                    <span class="text-primary">
+                      <i class="fa fa-user"></i>
+                      <span>
+                        <strong><span>Perfil actualizado</span></strong>
+                      </span>
+                    </span>
+                    <span class="pull-right">recién</span>
+                  </a>  
+                </li>
+                <li>
+                  <a href="#">
+                    <span class="text-danger">
+                      <i class="fa fa-exclamation-triangle"></i>
+                      <span >
+                        <strong><span>Nueva incidencia</span></strong>
+                      </span>
+                    </span>
+                    <span class="pull-right">hace 4 min</span>
+                  </a>  
+                </li>
+                <li>
+                  <a href="#" >
+                    <span class="text-success">
+                      <i class="fa fa-check"></i>
+                      <span>
+                        <strong><span>Problema resuelto</span></strong>
+                      </span>
+                    </span>
+                    <span class="pull-right">ayer</span>
+                  </a>  
+
+                </li>
+                <li>
+                  <a href="#">
+                    <span class="text-warning">
+                      <i class="fa fa-repeat"></i>
+                      <span>
+                        <strong><span>Información actualizada</span></strong>
+                      </span>
+                    </span>
+                    <span class="pull-right">8:00pm</span>
+                  </a>
+                </li>
+                <li class="divider"></li>
+                <li class="text-center notification-panel">
+                  <a href="#">
+                    Ver todas las notificaciones
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <div class="separador_header"></div>
+            <li style="padding-top:17px; padding-right:5px; color:#ffffff">
+              <label>Proyecto</label>
+            </li>
+          </ul><!-- ./notification -->
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <!-- content -->
+
+  <div id="container" class="fixed-header">
+    <div id="body">
+      <div id="" class="container ">
+        <div class="container-c">
+          <div ui-butterbar></div>
+          <div class="app-content-body fade-in-up" ui-view></div>
+        </div>
+      </div>
+    </div>
+  </div>           
+
+  <!-- /content -->
+
+
+  <!-- footer -->
+  <!-- / footer -->

@@ -1,0 +1,247 @@
+<div ng-controller="OPUsers" class="modal fade" >
+    <div class="modal-dialog width-cstm-modal-xl">
+        <form id="op_FNewUser"  class="form-horizontal" >
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">
+                        <i class="fa fa-plus"></i> Nuevo Usuario
+                    </h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="tabbable tabbable-custom">
+                        <ul class="nav nav-tabs nav-tabs2">
+                            <li class="active">
+                                <a href="#op_TbNewGeneral" data-toggle="tab">General 
+                                    <i class="fa"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#op_TbNewLocation" data-toggle="tab">Ubicación 
+                                    <i class="fa"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#op_TbNewCompany" data-toggle="tab">Compañía 
+                                    <i class="fa"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#op_TbNewAdditionalField" data-toggle="tab">Informacion Adicional 
+                                    <i class="fa"></i>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="op_TbNewGeneral">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label-2">Nombre <span class="required">*</span></label>
+                                        <div class="col-md-8">
+                                            <div class="input-icon2">
+                                                <input type="text" name="first_name" class="form-control" required>
+                                            </div>
+                                        </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label-2">Apellido  <span class="required">*</span></label>
+                                            <div class="col-md-8">
+                                                <div class="input-icon2">
+                                                    <input type="text" name="last_name" class="form-control" required></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label-2">Alias  <span class="required">*</span></label>
+                                                <div class="col-md-8"><div class="input-icon2">
+                                                    <i class="fa "></i>
+                                                    <input type="text" name="alias" class="form-control"></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label-2">Correo <span class="required">*</span></label>
+                                                <div class="col-md-8">
+                                                    <div class="input-icon2">
+                                                    </i><input type="email" name="email" class="form-control" required parsley-type="email"></div></div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-4 control-label-2">Usuario  <span class="required">*</span></label>
+                                                    <div class="col-md-8">
+                                                        <div class="input-icon2">
+                                                        </i><input type="text" name="username" class="form-control" required></div></div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-4 control-label-2">Clave  <span class="required">*</span></label>
+                                                        <div class="col-md-8"><div class="input-icon2">
+                                                        </i><input type="password" id="pass1" name="password" class="form-control" required minlength="6"></div></div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-4 control-label-2">Confirmar clave  <span class="required">*</span></label>
+                                                        <div class="col-md-8"><div class="input-icon2">
+                                                        </i><input type="password" id="pass2" name="password2" identical="password" message: class="form-control" required minlength="6"></div></div>
+                                                    </div>
+                             
+                                    
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class=" col-md-4 control-label-2" >Perfil *</label>
+                                        <div class="col-md-8"><div class="input-icon-select">
+                                            <select id="op_SNewProfile" class="full-width-fix" name="profile">
+                                                <option value="">Seleccione un Perfil</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label-2">Logo de la Empresa *</label>
+                                    <div class="col-md-8">
+                                        <div id="subir">
+                                            <input id="avatar" type="file" name="avatar" />
+                                        </div>
+                                        <div id="cargados">
+
+                                        </div>
+                                    </div>
+                                </div> 
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label-2">Teléfono *</label>
+                                    <div class="col-md-8">
+                                        <input type="tel" class="form-control" name="phone" placeholder="(000) 000-0000" >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label-2">Celular *</label>
+                                    <div class="col-md-8">
+                                        <input class="form-control" type="tel" name="mobile"  placeholder="(000) 000-0000" >
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label-2">Extensión *</label>
+                                    <div class="col-md-8"><input type="tel" name="extension" class="form-control"  placeholder="(000) 000-0000 x99999"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label-2">Fax *</label>
+                                    <div class="col-md-8"><input type="tel" name="fax" class="form-control"  placeholder="(000) 000-0000" ></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class=" col-md-4 control-label-2" >Cargo *</label>
+                                    <div class=" col-md-8">
+                                        <select id="op_SNewPosition" class="full-width-fix" name="position_id" >
+                                            <option value="" selected='selected'>---Seleccione Cargo---</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="op_TbNewLocation">
+                            <div class="row">
+                                <div class="col-md-8 col-center">
+
+                                    <div class="form-group">
+                                        <label class=" col-md-3 control-label-2" >País</label>
+                                        <div class=" col-md-9">
+                                            <select id="op_SNewCountry" class="full-width-fix" name='country'>
+                                                <option value="" selected='selected'>---Seleccione País---</option>
+                                                
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class=" col-md-3 control-label-2" >Estado</label>
+                                        <div class=" col-md-9">
+                                            <select id="op_SNewState" class="full-width-fix">
+                                                <option value="" selected='selected' name='state'>---Seleccione Estado---</option>
+                                                
+                                                <option value=""></option>
+                                                
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class=" col-md-3 control-label-2" >Ciudad *</label>
+                                        <div class=" col-md-9">
+                                            <select id="op_SNewCity" class="full-width-fix" name='city_id'>
+                                                <option value="" selected='selected'>---Seleccione Ciudad---</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label-2">Dirección *</label>
+                                        <div class="col-md-9"><input type="text" name="address" class="form-control" ></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class=" col-md-3 control-label-2" >Departamento *</label>
+                                        <div class=" col-md-9">
+                                            <select id="op_SNewDepartment"  name="department_id">
+                                                <option value="">Seleccione Departamento</option>
+                                                
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label-2">Edificio *</label>
+                                        <div class="col-md-9"><input type="text" name="edifice" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label-2">Piso *</label>
+                                        <div class="col-md-9"><input type="text" name="floor" class="form-control"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="op_TbNewCompany">
+                            <div class="row">
+                                <div class="col-md-8 col-center">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label-2">Compañía *</label>
+                                        <div class=" col-md-9">
+                                            <select id="op_SNewCompany" class="full-width-fix" name="company_id" >
+                                                <option value="" selected='selected'>---Seleccione Compañía---</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class=" col-md-3 control-label-2" >Sede</label>
+                                        <div class=" col-md-9">
+                                            <select id="op_SNewSeat" class="full-width-fix">
+                                                <option value="0" selected='selected'>---Seleccione Sede---</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane" id="op_TbNewAdditionalField">
+                            <div class="col-md-6">
+
+                            <!-- Campos Adicionales -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="modal-footer">
+
+            <div class="row">
+                <div class="col-md-4"><span>Los campos con<span class="required"> * </span>son requeridos</span></div>
+                <div class="col-md-8 pull-right">
+                    <button type="submit" class="btn btn-primary" >Guardar</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</form>
+</div><!-- /.modal-dialog -->
+</div>

@@ -1,0 +1,370 @@
+{% extends "base.html"%}
+{% load staticfiles %}
+{% block menu %}
+    {% include "menu.html" %}
+{% endblock %}
+
+{% block css %}
+	<link href="{% static "lib/datepicker/lib/themes/classic.css" %}" rel="stylesheet" type="text/css" />
+	<link href="{% static "lib/datepicker/lib/themes/classic.date.css" %}" rel="stylesheet" type="text/css" />
+	<link href="{% static "lib/datepicker/lib/themes/classic.time.css" %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+
+{% block js %}
+	  
+	<script type="text/javascript" src="{% static "lib/datepicker/lib/picker.js"%}"></script>
+	<script type="text/javascript" src="{% static "lib/datepicker/lib/picker.date.js"%}"></script>
+	<script type="text/javascript" src="{% static "lib/datepicker/lib/picker.time.js"%}"></script>
+	<script type="text/javascript" src="{% static "js/op_users.js" %}"></script>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+
+<form id="op_FNewUser"  class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+<!--Fila de la Cabecera-->
+	<div class="row">
+		<div class="col-md-12">
+			<div class="widget box shadow_h">
+				<div style="padding-bottom: 4px;" class="widget-content">
+					<ul class="stats list_analist">
+						<li>
+							<div class="row">
+							    <div style="height: 38px;" class="col-md-1">
+									<a style="margin-right:20px; margin-left:24px;margin-bottom:-5px;padding-top: 6px;float: left;" href="/OmegaProfile/users/">			
+									   <i data-toggle="tooltip" data-placement="top" title="" data-original-title="Regresar" class="fa fa-arrow-left fa-2x"></i>
+									</a>													
+							    </div>
+							    <div class="col-md-3">
+							  
+							    
+							    </div>
+							    <div style="border-left: solid 1px #ccc;" class="col-md-4">
+							    	
+							    </div>
+							    <div class="col-md-1">
+							    </div>
+							    <div style="padding-top: 3px; text-align: right;" class="col-md-3">
+							   		 <button type="submit" class="btn btn-primary Boton_omegaSD">Guardar</button>
+			                            <a class="btn btn-danger Boton_Secondary_omegaSD"  href="{% url 'user_list' %}" >Cancelar</a>
+							    </div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+<!--Fila del Formulario-->
+	<div class="row">
+		<div class="col-md-12">
+			<div class="widget box">
+				<div class="widget-header omega">
+					<h4><i class="fa fa-edit"></i> Editar Usuario</h4>
+				</div>
+				<div style="min-height: 539px;" class="widget-content">
+					<div class="tabbable tabbable-custom">
+						<ul class="nav nav-tabs nav-tabs2">
+							<li class="active"><a href="#op_TbNewGeneral" data-toggle="tab">General <i class="fa"></i></a></li>
+							<li><a href="#op_TbNewLocation" data-toggle="tab">Ubicación <i class="fa"></i></a></li>
+							<li><a href="#op_TbNewCompany" data-toggle="tab">Compañía <i class="fa"></i></a></li>
+							<li><a href="#op_TbNewAdditionalField" data-toggle="tab">Informacion Adicional <i class="fa"></i></a></li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane active" id="op_TbNewGeneral">
+								<div class="col-md-6">
+
+									<div class="form-group">	
+										<label class="col-sm-4 control-label">Nombre <span class="required">*</span></label>
+										<div class="col-sm-8">
+											<input type="text" name="first_name" class="form-control" value="{{user_info.user.first_name}}" required>
+										</div>
+									</div>
+
+
+									<div class="form-group">
+										<label class="col-sm-4 control-label">Apellido  <span class="required">*</span></label>
+										<div class="col-sm-8">
+											<input type="text" name="last_name" class="form-control" value="{{ user_info.user.last_name }}" required>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-4 control-label">Alias  {% ifequal req_fields.1.required "required"  %}<span class="required">*</span>{% endifequal %}</label>
+										<div class="col-sm-8">
+											<input type="text" name="alias" class="form-control" {{req_fields.1.required}} value="{{ user_info.alias }}">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-4 control-label">Correo <span class="required">*</span></label>
+										<div class="col-sm-8">
+											<input type="email" name="email" class="form-control" value="{{ user_info.user.email }}" required parsley-type="email">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-4 control-label">Usuario  <span class="required">*</span></label>
+										<div class="col-sm-8">
+											<input type="text" name="username" class="form-control" required value="{{user_info.user.username}}">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-4 control-label">Clave  <span class="required">*</span></label>
+										<div class="col-sm-8"><div class="input-icon2">
+										<input type="password" id="pass1" name="password" class="form-control" required minlength="6"></div></div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">Confirmar clave  <span class="required">*</span></label>
+										<div class="col-sm-8">
+											<input type="password" id="pass2" name="password2" identical="password" message: class="form-control" required minlength="6">
+										</div>
+									</div>
+									
+								</div>
+
+								<div class="col-md-6">
+									<div class="form-group">
+										<label class="col-sm-4 control-label" >Perfil {% ifequal req_fields.0.required "required"  %}<span class="required">*</span>{% endifequal %}</label>
+										<div class="col-sm-8">
+											{{form.profile}}
+											<!--
+											<select id="op_SNewProfile" class="full-width-fix" name="profile" {{req_fields.0.required}}>
+											    <option value="">Seleccione un Perfil</option>
+												{%for profiles in profiles %}
+													<option value="{{profiles.id}}">{{profiles.name}}</option>
+												{% endfor %}
+											</select>
+										-->
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-4 control-label">Logo de la Empresa {% ifequal req_fields.14.required "required"  %}<span class="required">*</span>{% endifequal %}</label>
+										<div class="col-sm-8">
+											<div id="subir">
+												 <input id="avatar" type="file" name="avatar" {{req_fields.14.required}}  />
+											</div>
+											<div id="cargados">
+
+											</div>
+										</div>
+									</div> 
+
+									<div class="form-group">
+										<label class="col-sm-4 control-label">Teléfono {% ifequal req_fields.10.required "required"  %}<span class="required">*</span>{% endifequal %}</label>
+	                                    <div class="col-sm-8">
+	                                        <input type="tel" class="form-control" name="phone" placeholder="(000) 000-0000" {{req_fields.10.required}} >
+	                                    </div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">Celular {% ifequal req_fields.12.required "required"  %}<span class="required">*</span>{% endifequal %}</label>
+										<div class="col-sm-8">
+	                                        <input class="form-control" type="tel" name="mobile"  placeholder="(000) 000-0000" {{req_fields.12.required}}>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-4 control-label">Extensión {% ifequal req_fields.7.required "required"  %}<span class="required">*</span>{% endifequal %}</label>
+	                                    <div class="col-sm-8">
+	                                    	<input type="tel" name="extension" class="form-control"  placeholder="(000) 000-0000 x99999" {{req_fields.7.required}}>
+	                                    </div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">Fax {% ifequal req_fields.13.required "required"  %}<span class="required">*</span>{% endifequal %}</label>
+	                                    <div class="col-sm-8">
+	                                    	<input type="tel" name="fax" class="form-control"  placeholder="(000) 000-0000" {{req_fields.13.required}}>
+	                                    </div>
+									</div>
+								    <div class="form-group">
+										<label class=" col-sm-4 control-label" >Cargo {% ifequal req_fields.3.required "required"  %}<span class="required">*</span>{% endifequal %}</label>
+										<div class=" col-sm-8">
+											{{form.position}}
+
+											<!--
+											<select id="op_SNewPosition" class="full-width-fix" name="position_id" {{req_fields.3.required}}>
+												<option value="" selected='selected'>---Seleccione Cargo---</option>
+												{%for position in position %}
+												<option value="{{position.id}}">{{position.name}}</option>
+												{% endfor %}
+											</select>
+										-->
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane" id="op_TbNewLocation">
+								<div class="row">
+									<div class="col-sm-8 col-center">
+
+										
+										<div class="form-group">
+											<label class="col-sm-3 control-label" >País</label>
+											<div class=" col-sm-9">
+												<select id="op_SNewCountry" class="full-width-fix" name='country'>
+													<option value="" selected='selected'>---Seleccione País---</option>
+												{%for countries in countries %}
+													<option value="{{countries.id}}">{{countries.name}}</option>
+												{% endfor %}
+												</select>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="col-sm-3 control-label" >Estado</label>
+											<div class="col-sm-9">
+												<select id="op_SNewState" class="full-width-fix">
+													<option value="" selected='selected' name='state'>---Seleccione Estado---</option>
+												
+													<option value=""></option>
+												
+												</select>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="col-sm-3 control-label" >Ciudad {% ifequal req_fields.2.required "required"  %}<span class="required">*</span>{% endifequal %}</label>
+											<div class="col-sm-9">
+												{{form.city}}
+												<!--
+	                                            <select id="op_SNewCity" class="full-width-fix" name='city_id' {{req_fields.2.required}}>
+													<option value="" selected='selected'>---Seleccione Ciudad---</option>
+												</select>
+												-->
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Dirección {% ifequal req_fields.4.required "required"  %}<span class="required">*</span>{% endifequal %}</label>
+	                                        <div class="col-sm-9">
+	                                        	<input type="text" name="address" class="form-control" value="{{ form.address.value |default_if_none:"" }}" {{req_fields.4.required}}>
+	                                        </div>
+										</div>
+
+										<div class="form-group">
+											<label class=" col-sm-3 control-label" >Departamento {% ifequal req_fields.9.required "required"  %}<span class="required">*</span>{% endifequal %}</label>
+											<div class=" col-sm-9">
+												{{form.department}}
+												<!--
+	                                            <select id="op_SNewDepartment"  name="department_id" {{req_fields.9.required}}>
+													<option value="">Seleccione Departamento</option>
+												{%for department in department %}
+													<option value="{{department.id}}">{{department.name}}</option>
+												{% endfor %}
+												</select>
+											-->
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Edificio {% ifequal req_fields.5.required "required"  %}<span class="required">*</span>{% endifequal %}</label>
+	                                        <div class="col-sm-9">
+	                                        	<input type="text" name="edifice" class="form-control" {{req_fields.5.required}}>
+	                                        </div>
+										</div>
+
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Piso {% ifequal req_fields.6.required "required"  %}<span class="required">*</span>{% endifequal %}</label>
+	                                        <div class="col-sm-9">
+	                                        	<input type="text" name="floor" class="form-control" {{req_fields.6.required}}>
+	                                        </div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane" id="op_TbNewCompany">
+								<div class="row">
+									<div class="col-sm-8 col-center">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Compañía {% ifequal req_fields.8.required "required"  %}<span class="required">*</span>{% endifequal %}</label>
+											<div class=" col-sm-9">
+
+												{{form.company}}
+												<!--
+	                                            <select id="op_SNewCompany" class="full-width-fix" name="company_id" {{req_fields.8.required}}>
+													<option value="" selected='selected'>---Seleccione Compañía---</option>
+													{%for company in company %}
+														<option value="{{company.id}}">{{company.name}}</option>
+													{% endfor %}
+
+												</select>
+											-->
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-3 control-label" >Sede</label>
+											<div class=" col-sm-9">
+												<select id="op_SNewSeat" class="full-width-fix">
+													<option value="0" selected='selected'>---Seleccione Sede---</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+	                        
+	                        <div class="tab-pane" id="op_TbNewAdditionalField">
+								<div class="col-md-6">
+
+	                                {% for attr in fields %}
+		                                {% if attr.visible %}
+		                                <div class="form-group">
+		                                    <label class="col-sm-4 control-label">{{attr.title | capfirst}}</label>
+		                                    <div class="col-sm-8">
+		                                        {% if attr.datatype != 'enum' %}
+		                                        <input 
+		                                        {% if attr.datatype == 'int' %} type="number" name="eav__{{attr.name}}"
+		                                        {% elif attr.datatype == 'float' %} type="number" step="0.01" name="eav__{{attr.name}}"
+		                                        {% elif attr.datatype == 'text' %} type="text" name="eav__{{attr.name}}" 
+		                                        {% elif attr.datatype == 'date' %}  type="text"  name="date_eav__{{attr.name}}" class="form-control datepicker"
+		                                        {% endif %} 
+		                                         class="form-control" 
+
+		                                        {% if attr.required %}
+		                                         	required
+		                                        {% endif %} >
+		                                        {% else %}
+		                                        <select data-placeholder="Seleccione una opcion" class="full-width-fix select" name="select_eav__{{attr.name}}"  
+		                                        {% if attr.required %} 
+		                                        	required 
+		                                        {% endif %} >
+
+		                                        <option></option>
+		                                            {% for choi in attr.get_choices.values %}
+		                                            <option value="{{choi.id}}">{{choi.value}}</option>
+		                                            {% endfor %}
+		                                        </select>
+		                                        {% endif %}
+		                                     </div>
+		                                </div>
+		                                {% endif %}
+	                                {% endfor %}
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+
+
+
+	{% block modal %}
+	    {% include "op_Mauth.html" %}
+	{% endblock %}
+
+	  
+{% endblock %}
